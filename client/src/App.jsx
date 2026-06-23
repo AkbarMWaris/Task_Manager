@@ -9,8 +9,9 @@ import './App.css';
 
 const API_BASE_URL = import.meta.env.DEV
   ? 'http://localhost:5000/api'
-  : '/api';
+  : import.meta.env.VITE_API_URL;
 
+  
 function App() {
   const { isAuthenticated, loading: authLoading } = useAuth();
   const [tasks, setTasks] = useState([]);
