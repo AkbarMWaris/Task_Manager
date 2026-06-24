@@ -4,20 +4,32 @@ import TaskForm from './components/TaskForm';
 import TaskList from './components/TaskList';
 import AuthModal from './components/AuthModal';
 import UserMenu from './components/UserMenu';
+<<<<<<< HEAD
 import HowItWorksModal from './components/HowItWorksModal';
+=======
+>>>>>>> c0c4e34b8870a2d6bd3634d9e56ef0971caa6570
 import { useAuth } from './context/AuthContext';
 import './App.css';
 
 const API_BASE_URL = import.meta.env.DEV
   ? 'http://localhost:5000/api'
+<<<<<<< HEAD
   : '/api';
 
+=======
+  : import.meta.env.VITE_API_URL;
+
+  
+>>>>>>> c0c4e34b8870a2d6bd3634d9e56ef0971caa6570
 function App() {
   const { isAuthenticated, loading: authLoading } = useAuth();
   const [tasks, setTasks] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+<<<<<<< HEAD
   const [showHowItWorks, setShowHowItWorks] = useState(false);
+=======
+>>>>>>> c0c4e34b8870a2d6bd3634d9e56ef0971caa6570
 
   // Fetch all tasks belonging to the logged-in user
   const fetchTasks = async () => {
@@ -83,6 +95,7 @@ function App() {
         <UserMenu />
         <h1>💼 Task Manager</h1>
         <p>Manage your tasks efficiently</p>
+<<<<<<< HEAD
         <button
           className="how-it-works-btn"
           onClick={() => setShowHowItWorks(true)}
@@ -95,6 +108,10 @@ function App() {
         <HowItWorksModal onClose={() => setShowHowItWorks(false)} />
       )}
 
+=======
+      </div>
+
+>>>>>>> c0c4e34b8870a2d6bd3634d9e56ef0971caa6570
       <div className="container">
         <TaskForm onTaskAdded={refreshTasks} />
         {error && (

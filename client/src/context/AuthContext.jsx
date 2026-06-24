@@ -3,8 +3,13 @@ import axios from 'axios';
 
 const API_BASE_URL = import.meta.env.DEV
   ? 'http://localhost:5000/api'
+<<<<<<< HEAD
   : '/api';
 
+=======
+  : import.meta.env.VITE_API_URL;
+  
+>>>>>>> c0c4e34b8870a2d6bd3634d9e56ef0971caa6570
 const AuthContext = createContext(null);
 
 export const useAuth = () => useContext(AuthContext);
@@ -69,6 +74,7 @@ export const AuthProvider = ({ children }) => {
     setUser(response.data.user);
   };
 
+<<<<<<< HEAD
   // Creates the account but does NOT log the user in — used so signup
   // redirects to the login form instead of auto-authenticating.
   const register = async (name, email, password) => {
@@ -76,6 +82,8 @@ export const AuthProvider = ({ children }) => {
   };
 
 
+=======
+>>>>>>> c0c4e34b8870a2d6bd3634d9e56ef0971caa6570
   const login = async (email, password) => {
     const response = await axios.post(`${API_BASE_URL}/auth/login`, { email, password });
     axios.defaults.headers.common['Authorization'] = `Bearer ${response.data.token}`;
@@ -93,7 +101,10 @@ export const AuthProvider = ({ children }) => {
     isAuthenticated: !!user,
     loading,
     signup,
+<<<<<<< HEAD
     register,
+=======
+>>>>>>> c0c4e34b8870a2d6bd3634d9e56ef0971caa6570
     login,
     logout,
   };

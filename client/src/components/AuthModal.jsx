@@ -2,17 +2,25 @@ import React, { useState } from 'react';
 import { useAuth } from '../context/AuthContext';
 
 const AuthModal = () => {
+<<<<<<< HEAD
   const { login, register } = useAuth();
   const [mode, setMode] = useState('login'); // 'login' | 'signup'
   const [formData, setFormData] = useState({ name: '', email: '', password: '' });
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(null);
+=======
+  const { login, signup } = useAuth();
+  const [mode, setMode] = useState('login'); // 'login' | 'signup'
+  const [formData, setFormData] = useState({ name: '', email: '', password: '' });
+  const [error, setError] = useState(null);
+>>>>>>> c0c4e34b8870a2d6bd3634d9e56ef0971caa6570
   const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+<<<<<<< HEAD
   const isValidEmail = (email) => /^[^\s@]+@[^\s@]+\.(com|in)$/i.test(email);
 
   const handleSubmit = async (e) => {
@@ -25,15 +33,24 @@ const AuthModal = () => {
       return;
     }
 
+=======
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError(null);
+>>>>>>> c0c4e34b8870a2d6bd3634d9e56ef0971caa6570
     setLoading(true);
     try {
       if (mode === 'login') {
         await login(formData.email, formData.password);
       } else {
+<<<<<<< HEAD
         await register(formData.name, formData.email, formData.password);
         setMode('login');
         setSuccess('Account created! Please log in.');
         setFormData({ name: '', email: formData.email, password: '' });
+=======
+        await signup(formData.name, formData.email, formData.password);
+>>>>>>> c0c4e34b8870a2d6bd3634d9e56ef0971caa6570
       }
     } catch (err) {
       setError(err.response?.data?.message || 'Something went wrong. Please try again.');
@@ -45,7 +62,10 @@ const AuthModal = () => {
   const toggleMode = () => {
     setMode(mode === 'login' ? 'signup' : 'login');
     setError(null);
+<<<<<<< HEAD
     setSuccess(null);
+=======
+>>>>>>> c0c4e34b8870a2d6bd3634d9e56ef0971caa6570
   };
 
   return (
@@ -99,8 +119,13 @@ const AuthModal = () => {
             />
           </div>
 
+<<<<<<< HEAD
 {success && <div className="auth-success">{success}</div>}
           {error && <div className="auth-error">{error}</div>}
+=======
+          {error && <div className="auth-error">{error}</div>}
+
+>>>>>>> c0c4e34b8870a2d6bd3634d9e56ef0971caa6570
           <button type="submit" className="btn" disabled={loading} style={{ width: '100%' }}>
             {loading ? 'Please wait...' : mode === 'login' ? 'Log In' : 'Sign Up'}
           </button>
