@@ -23,11 +23,9 @@ A production-ready Task Management application built with React (Vite), Node.js/
 | Tailwind CSS | Serverless | Atlas    |            | ESLint |
 
 ## 🎬 Demo
-<<<<<<< HEAD
+
 Live Demo: https://task-manager-frontend-newone.vercel.app/
-=======
-Live Demo: https://task-manager-new-six.vercel.app/
->>>>>>> c0c4e34b8870a2d6bd3634d9e56ef0971caa6570
+
 
 ### 1. Clone & Install Backend
 ```bash
