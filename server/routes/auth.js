@@ -21,11 +21,8 @@ const generateToken = (userId) => {
   return jwt.sign({ userId }, process.env.JWT_SECRET, { expiresIn: '7d' });
 };
 
-<<<<<<< HEAD
 const isValidEmail = (email) => /^[^\s@]+@[^\s@]+\.(com|in)$/i.test(email);
 
-=======
->>>>>>> c0c4e34b8870a2d6bd3634d9e56ef0971caa6570
 // POST /api/auth/signup
 router.post('/signup', async (req, res) => {
   try {
@@ -36,13 +33,10 @@ router.post('/signup', async (req, res) => {
       return res.status(400).json({ message: 'Name, email and password are required' });
     }
 
-<<<<<<< HEAD
     if (!isValidEmail(email)) {
       return res.status(400).json({ message: 'Email must end with .com or .in' });
     }
 
-=======
->>>>>>> c0c4e34b8870a2d6bd3634d9e56ef0971caa6570
     const existingUser = await User.findOne({ email: email.toLowerCase() });
     if (existingUser) {
       return res.status(400).json({ message: 'An account with this email already exists' });
